@@ -2,38 +2,22 @@
 use strict;
 use warnings;
 
-# Clase con Getters y Setters
-package Persona;
+#definicion de una clase
 
+package Perro;
+
+# Constructor para inicializar los atributos de la clase
 sub new {
-    my ($class, $nombre, $edad) = @_;
+    my ($class, $nombre, $raza) = @_;
     my $self = {
         nombre => $nombre,
-        edad   => $edad,
+        raza   => $raza,
     };
     bless $self, $class;
     return $self;
 }
 
-# Getter y Setter para 'nombre'
-sub get_nombre {
-    my $self = shift;
-    return $self->{nombre};
-}
-
-sub set_nombre {
-    my ($self, $nombre) = @_;
-    $self->{nombre} = $nombre;
-}
-
-# Usar los getters y setters
 package main;
 
-my $persona = Persona->new("Juan", 25);
-
-# Usando getter
-print "Nombre inicial: " . $persona->get_nombre() . "\n";
-
-# Usando setter
-$persona->set_nombre("Carlos");
-print "Nombre actualizado: " . $persona->get_nombre() . "\n";
+my $perro = Perro->new("Perro1", "salchicha");
+print "Se creó un objeto de la clase Perro con nombre: " . $perro->{nombre} . " y raza: " . $perro->{raza} . "\n";
